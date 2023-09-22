@@ -14,18 +14,16 @@ def morse_decipher(morse)
 end
 
 def decode(morse_code)
-  morse_code = morse_code.strip  # Remove leading and trailing spaces
-  morse_code_words = morse_code.split('   ')  # Split the Morse code into words
+  morse_code = morse_code.strip # Remove leading and trailing spaces
+  morse_code_words = morse_code.split('   ') # Split the Morse code into words
 
-  decoded_message = morse_code_words.map do |word|
+  morse_code_words.map do |word|
     word.split(' ').map do |char|
       morse_decipher(char)
     end.join('')
   end.join(' ')
-
-  return decoded_message
 end
 
-input_code = "-- -.--   -. .- -- ."
+input_code = '-- -.--   -. .- -- .'
 decoded_message = decode(input_code)
 puts decoded_message
